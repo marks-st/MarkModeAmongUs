@@ -7,7 +7,7 @@ The name and color can be changed in the settings in MarkModeMain.cs though.
 ![Screenshot](./Screenshot.png)
 
 # Installation
-Install Reactor Modding Framework according to the [Reactor Docs](https://docs.reactor.gg/docs/) and drop the compiled dll in the BepInEx/Plugins folder. Every player needs to have the mod installed.
+Unzip all files into <Steam-Folder>\steamapps\common\Among Us and run the game. Game should be playable on public servers.
 
 # Development
 Install Reactor Modding Framework according to the [Reactor Docs](https://docs.reactor.gg/docs/) and open the project in Visual Studio 
