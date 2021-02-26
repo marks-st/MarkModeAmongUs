@@ -24,10 +24,7 @@ namespace MarkMode
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] uint petId)
         {
-            if (MarkModeMain.petsDisabled)
-                return false;
-
-            return true;
+            return !MarkModeMain.petsDisabled;
         }
     }
 
@@ -37,10 +34,7 @@ namespace MarkMode
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] uint skinId)
         {
-            if (MarkModeMain.skinsDisabled)
-                return false;
-
-            return true;
+            return !MarkModeMain.skinsDisabled;
         }
     }
 }

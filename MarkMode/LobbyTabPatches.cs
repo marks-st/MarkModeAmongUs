@@ -36,8 +36,7 @@ namespace MarkMode
     //{
     //    public static bool Prefix(PetsTab __instance)
     //    {
-    //        if (MarkModeMain.petsDisabled)
-    //        return false;
+    //        return !MarkModeMain.petsDisabled;
     //    }
     //}
 
@@ -47,10 +46,7 @@ namespace MarkMode
     {
         public static bool Prefix(SkinsTab __instance)
         {
-            if (MarkModeMain.skinsDisabled)
-                return false;
-
-            return true;
+            return !MarkModeMain.skinsDisabled;
         }
     }
 }

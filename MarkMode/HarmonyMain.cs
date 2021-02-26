@@ -1,5 +1,4 @@
 ﻿using BepInEx;
-using BepInEx.Configuration;
 using BepInEx.IL2CPP;
 using HarmonyLib;
 using Reactor;
