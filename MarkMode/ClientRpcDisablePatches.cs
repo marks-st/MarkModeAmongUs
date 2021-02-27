@@ -3,8 +3,9 @@
 namespace MarkMode
 {
 
-    /* These patches disable the sending of players hat, pet and skin settings. 
-     * Only the host will set these parameters.
+    /* These patches disable the sending of clients hat, pet and skin settings. 
+     * We need to block these, because they are directly called by the tabs in the game settings.
+     * To still communicate changes to others we need alternative versions, which are in HandleRpc.cs
      */
 
     // Hat
@@ -14,7 +15,7 @@ namespace MarkMode
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] uint hatId)
         {
             // Colors and hats are always disabled. That is the reason for the mod.
-            return false;
+            return !MarkModeMain.ModActive.GetValue();
         }
     }
 
@@ -24,7 +25,7 @@ namespace MarkMode
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] uint petId)
         {
-            return !MarkModeMain.petsDisabled;
+            return !MarkModeMain.ModActive.GetValue() || MarkModeMain.PetsAllowed.GetValue();
         }
     }
 
@@ -34,7 +35,7 @@ namespace MarkMode
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] uint skinId)
         {
-            return !MarkModeMain.skinsDisabled;
+            return !MarkModeMain.ModActive.GetValue() || MarkModeMain.SkinsAllowed.GetValue();
         }
     }
 }

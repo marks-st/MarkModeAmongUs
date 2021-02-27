@@ -3,6 +3,7 @@
     /* AmongUs enum values
      */
 
+    // Player colors
     public enum Color
     {
         Red = 0,
@@ -19,7 +20,8 @@
         LightGreen = 11
     }
 
-    enum RPC
+    // Original game messages
+    enum Rpc
     {
         PlayAnimation = 0,
         CompleteTask = 1,
@@ -52,5 +54,19 @@
         RepairSystem = 28,
         SetTasks = 29,
         UpdateGameData = 30,
+    }
+
+    // Messages used for this mod.
+    enum CustomRpc
+    {
+        //43-58 used by ExtraRolesMod. Using higher Ids to be compatible. 
+
+        HostSetHat = 60,
+        HostSetPet = 61,
+        HostSetSkin = 62,
+
+        SetModActive = 70,
+        SetPetsAllowed = 71,
+        SetSkinsAllowed = 72
     }
 }

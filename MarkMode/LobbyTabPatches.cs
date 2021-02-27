@@ -13,8 +13,8 @@ namespace MarkMode
     {
         public static bool Prefix(PlayerTab __instance)
         {
-            // Colors and hats are always disabled. That is the reason for the mod.
-            return false;
+            // Colors and hats are always disabled if mod is active.That is the reason for the mod.
+            return !MarkModeMain.ModActive.GetValue();
         }
     }
 
@@ -24,19 +24,18 @@ namespace MarkMode
     {
         public static bool Prefix(HatsTab __instance)
         {
-            // Colors and hats are always disabled. That is the reason for the mod.
-            return false;
+            // Colors and hats are always disabled if mod is active. That is the reason for the mod.
+            return !MarkModeMain.ModActive.GetValue();
         }
     }
 
     // PetsTabs does not work right now. OxygenFilter does not recognize the class name.
-
     //[HarmonyPatch(typeof(PetsTab), nameof(PetsTab.OnEnable))]
     //public static class DisablePetsTabPatch
     //{
     //    public static bool Prefix(PetsTab __instance)
     //    {
-    //        return !MarkModeMain.petsDisabled;
+    //        return !MarkModeMain.ModActive.GetValue() || MarkModeMain.PetsAllowed.GetValue();
     //    }
     //}
 
@@ -46,7 +45,7 @@ namespace MarkMode
     {
         public static bool Prefix(SkinsTab __instance)
         {
-            return !MarkModeMain.skinsDisabled;
+            return !MarkModeMain.ModActive.GetValue() || MarkModeMain.SkinsAllowed.GetValue();
         }
     }
 }

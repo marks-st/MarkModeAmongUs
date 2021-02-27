@@ -1,7 +1,4 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MarkMode
 {
@@ -9,28 +6,31 @@ namespace MarkMode
      * so that every player will has the same name and same color.
      */
 
+    // This patch sets the name to the client
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CheckName))]
     public static class CheckNamePatch
     {
         public static bool Prefix(PlayerControl __instance)
         {
-            __instance.RpcSetName(MarkModeMain.playerName);
+            if (!MarkModeMain.ModActive.GetValue())
+                return true;
 
-            // When a new player joins (asks for his name), hats are reassigned.
-            // This could also only be done on game start, but I like it this way.
-            MarkModeMain.assignHats();
-            MarkModeMain.sendHatAssignments();
+            __instance.RpcSetName(MarkModeMain.PlayerName.Value);
 
             return false;
         }
     }
 
+    // This patch sets the color to the client
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CheckColor))]
     public static class CheckColorPatch
     {
         public static bool Prefix(PlayerControl __instance)
         {
-            __instance.RpcSetColor((byte)MarkModeMain.playerColor);
+            if (!MarkModeMain.ModActive.GetValue())
+                return true;
+
+            __instance.RpcSetColor((byte)MarkModeMain.PlayerColor.Value);
 
             return false;
         }
