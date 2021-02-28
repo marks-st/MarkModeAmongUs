@@ -11,7 +11,7 @@ namespace MarkMode
     {
         public static void Postfix(PlayerControl __instance)
         {
-            if (AmongUsClient.Instance.AmHost)
+            if (AmongUsClient.Instance.AmHost && MarkModeMain.ModActive.GetValue())
             {
                 MarkModeMain.assignHats();
                 MarkModeMain.sendHatAssignments();
