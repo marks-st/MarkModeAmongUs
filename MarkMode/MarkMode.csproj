@@ -33,7 +33,7 @@
 
     <ItemGroup>
       <Reference Include="Essentials">
-        <HintPath>D:\Steam\steamapps\common\Among Us\BepInEx\plugins\Essentials-2020.12.9s.dll</HintPath>
+        <HintPath>$(AmongUs)\BepInEx\plugins\Essentials-$(GameVersion).dll</HintPath>
       </Reference>
     </ItemGroup>
 
