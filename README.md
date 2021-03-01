@@ -18,6 +18,7 @@ You will need to get some information and files (like a disassembled and disobfu
 is the [Reactor Discord](https://discord.gg/Zcmsb9UGuq) and the [ExtraRolesAmongUs Mod](https://github.com/NotHunter101/ExtraRolesAmongUs).
 
 # History
+v0.3 - Fixed 2 bugs. Mod did assign hats even when deactivated. Path to Among Us was hard-coded instead of using the $(AmongUs) environment variable.  
 v0.2 - Works on public servers. In-Game settings to enable/disable mod and use of pets and skins. Hats are now randomized on game start instead of player join.  
 v0.1 - First release. Did not work on public servers.
 
